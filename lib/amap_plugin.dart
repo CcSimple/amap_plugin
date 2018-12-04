@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:ui';
 
 import 'package:flutter/services.dart';
 
@@ -40,6 +41,21 @@ class AmapPlugin {
           _eventChannel.receiveBroadcastStream().map((dynamic event) => event);
     }
     return _onLocationFetched;
+  }
+
+  /// 显示地图
+  Future<void> showMap({
+    String toolbarTitle,
+    Color toolbarColor,
+    Color toolbarWidgetColor,
+    List<String> markers
+  }) async {
+    return await _methodChannel.invokeMethod("showMap", <String, dynamic>{
+      'toolbar_title': toolbarTitle,
+      'toolbar_color': toolbarColor?.value,
+      'toolbar_width_color': toolbarWidgetColor?.value,
+      'markers': markers
+    });
   }
 
   Future<String> get platformVersion async {

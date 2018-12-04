@@ -32,6 +32,12 @@ android {
         disable 'InvalidPackage'
     }
     dependencies {
+        implementation fileTree(dir: 'libs', include: ['*.jar'])
+        implementation 'com.android.support:appcompat-v7:27+'
+        implementation 'com.android.support:design:27.+'
+        // 定位
         implementation 'com.amap.api:location:latest.integration'
+        // 3d地图
+        implementation 'com.amap.api:3dmap:latest.integration'
     }
 }

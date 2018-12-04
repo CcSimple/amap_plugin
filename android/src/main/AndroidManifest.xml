@@ -1,6 +1,20 @@
 <manifest xmlns:tools="http://schemas.android.com/tools"
     xmlns:android="http://schemas.android.com/apk/res/android"
   package="com.jzy.plugin.amapplugin">
+    <!--地图SDK（包含其搜索功能）需要的基础权限-->
+    <!--允许程序打开网络套接字-->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!--允许程序设置内置sd卡的写权限-->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <!--允许程序获取网络状态-->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <!--允许程序访问WiFi网络信息-->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <!--允许程序读写手机状态和身份-->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <!--允许程序访问CellID或WiFi热点来获取粗略的位置-->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
     <!-- 高德定位 -->
     <!--用于进行网络定位-->
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
@@ -27,6 +41,8 @@
     <application
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
+        <activity android:name="com.jzy.plugin.amapplugin.navi.SimpleMapActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
         <!-- 设置key -->
         <meta-data
             android:name="com.amap.api.v2.apikey"
